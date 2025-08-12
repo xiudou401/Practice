@@ -1,14 +1,17 @@
 import React from 'react';
 
 async function getTicket(id) {
-  const res = await fetch(`http://localhost:4000/tickets/${id}`);
+  const res = await fetch(`http://localhost:4000/tickets/${id}`, {
+    next: {
+      revalidate: 60,
+    },
+  });
   return res.json();
 }
 
 export default async function Ticket({ params }) {
   const { id } = params;
   const ticket = await getTicket(id);
-  console.log(ticket);
 
   return (
     <main>
