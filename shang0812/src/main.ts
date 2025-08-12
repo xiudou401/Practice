@@ -48,17 +48,39 @@
 
 // const s1 = new Student('Eason', 5);
 
-abstract class Package {
+// abstract class Package {
+//   constructor(public weight: number) {}
+//   abstract calculate(): number;
+//   printPackage() {
+//     console.log(
+//       `the parcel is ${this.weight} and it costs ${this.calculate()}  dollars`
+//     );
+//   }
+// }
+
+// class StandardPackage extends Package {
+//   constructor(weight: number, public unitPrice: number) {
+//     super(weight);
+//   }
+//   calculate(): number {
+//     return this.weight * this.unitPrice;
+//   }
+// }
+
+// const s1 = new StandardPackage(10, 5);
+// s1.printPackage();
+
+abstract class Parcel {
   constructor(public weight: number) {}
   abstract calculate(): number;
-  printPackage() {
+  printParcel() {
     console.log(
-      `the parcel is ${this.weight} and it costs ${this.calculate()}  dollars`
+      `you parcel is ${this.weight} kg and it's ${this.calculate()} dollars`
     );
   }
 }
 
-class StandardPackage extends Package {
+class StandardParcel extends Parcel {
   constructor(weight: number, public unitPrice: number) {
     super(weight);
   }
@@ -67,5 +89,5 @@ class StandardPackage extends Package {
   }
 }
 
-const s1 = new StandardPackage(10, 5);
-s1.printPackage();
+const s1 = new StandardParcel(10, 2);
+s1.printParcel();

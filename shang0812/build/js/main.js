@@ -40,16 +40,35 @@
 //   }
 // }
 // const s1 = new Student('Eason', 5);
-class Package {
+// abstract class Package {
+//   constructor(public weight: number) {}
+//   abstract calculate(): number;
+//   printPackage() {
+//     console.log(
+//       `the parcel is ${this.weight} and it costs ${this.calculate()}  dollars`
+//     );
+//   }
+// }
+// class StandardPackage extends Package {
+//   constructor(weight: number, public unitPrice: number) {
+//     super(weight);
+//   }
+//   calculate(): number {
+//     return this.weight * this.unitPrice;
+//   }
+// }
+// const s1 = new StandardPackage(10, 5);
+// s1.printPackage();
+class Parcel {
     weight;
     constructor(weight) {
         this.weight = weight;
     }
-    printPackage() {
-        console.log(`the parcel is ${this.weight} and it costs ${this.calculate()}  dollars`);
+    printParcel() {
+        console.log(`you parcel is ${this.weight} kg and it's ${this.calculate()} dollars`);
     }
 }
-class StandardPackage extends Package {
+class StandardParcel extends Parcel {
     unitPrice;
     constructor(weight, unitPrice) {
         super(weight);
@@ -59,7 +78,7 @@ class StandardPackage extends Package {
         return this.weight * this.unitPrice;
     }
 }
-const s1 = new StandardPackage(10, 5);
-s1.printPackage();
+const s1 = new StandardParcel(10, 2);
+s1.printParcel();
 export {};
 //# sourceMappingURL=main.js.map
