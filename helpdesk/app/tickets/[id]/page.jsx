@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import React from 'react';
 
 export async function generateStaticParams() {
@@ -15,6 +16,9 @@ async function getTicket(id) {
       revalidate: 60,
     },
   });
+  if (!res.ok) {
+    notFound();
+  }
   return res.json();
 }
 
