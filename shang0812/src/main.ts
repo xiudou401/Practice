@@ -1,28 +1,71 @@
-class Person {
-  name: string;
-  age: number;
-  constructor(name: string, age: number) {
-    this.name = name;
-    this.age = age;
-  }
-  play() {
-    console.log(`${this.name} is ${this.age}`);
+// class Person {
+//   name: string;
+//   age: number;
+//   constructor(name: string, age: number) {
+//     this.name = name;
+//     this.age = age;
+//   }
+//   play() {
+//     console.log(`${this.name} is ${this.age}`);
+//   }
+// }
+
+// const p1 = new Person('Will', 18);
+// p1.play();
+
+// class Student extends Person {
+//   sports: string;
+//   constructor(name: string, age: number, sports: string) {
+//     super(name, age);
+//     this.sports = sports;
+//   }
+//   override play() {
+//     console.log(`${this.name} is ${this.age} and loves ${this.sports}`);
+//   }
+// }
+
+// const s1 = new Student('eason', 5, 'soccer');
+// s1.play();
+
+// class Person {
+//   constructor(protected name: string, protected age: number) {}
+//   protected getDetails() {
+//     console.log(`${this.name} is ${this.age} `);
+//   }
+//   introduce() {
+//     this.getDetails();
+//   }
+// }
+
+// const p1 = new Person('Eason', 5);
+// p1.introduce();
+
+// class Student extends Person {
+//   play() {
+//     console.log(`${this.name} loves football`);
+//   }
+// }
+
+// const s1 = new Student('Eason', 5);
+
+abstract class Package {
+  constructor(public weight: number) {}
+  abstract calculate(): number;
+  printPackage() {
+    console.log(
+      `the parcel is ${this.weight} and it costs ${this.calculate()}  dollars`
+    );
   }
 }
 
-const p1 = new Person('Will', 18);
-p1.play();
-
-class Student extends Person {
-  sports: string;
-  constructor(name: string, age: number, sports: string) {
-    super(name, age);
-    this.sports = sports;
+class StandardPackage extends Package {
+  constructor(weight: number, public unitPrice: number) {
+    super(weight);
   }
-  override play() {
-    console.log(`${this.name} is ${this.age} and loves ${this.sports}`);
+  calculate(): number {
+    return this.weight * this.unitPrice;
   }
 }
 
-const s1 = new Student('eason', 5, 'soccer');
-s1.play();
+const s1 = new StandardPackage(10, 5);
+s1.printPackage();
