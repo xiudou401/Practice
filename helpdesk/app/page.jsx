@@ -1,5 +1,9 @@
 import Link from 'next/link';
 
 export default function Home() {
-  return <main>home</main>;
+  return (
+    <main>
+      <h2>Dashboard</h2>
+    </main>
+  );
 }
