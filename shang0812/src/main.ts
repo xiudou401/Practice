@@ -10,8 +10,7 @@ class Person {
   }
 }
 
-const p1 = new Person('will', 18);
-console.log(p1);
+const p1 = new Person('Will', 18);
 p1.play();
 
 class Student extends Person {
@@ -20,7 +19,6 @@ class Student extends Person {
     super(name, age);
     this.sports = sports;
   }
-
   override play() {
     console.log(`${this.name} is ${this.age} and loves ${this.sports}`);
   }

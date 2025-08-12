@@ -9,8 +9,7 @@ class Person {
         console.log(`${this.name} is ${this.age}`);
     }
 }
-const p1 = new Person('will', 18);
-console.log(p1);
+const p1 = new Person('Will', 18);
 p1.play();
 class Student extends Person {
     sports;
