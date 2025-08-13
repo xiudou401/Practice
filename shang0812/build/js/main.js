@@ -80,5 +80,24 @@ class StandardParcel extends Parcel {
 }
 const s1 = new StandardParcel(10, 2);
 s1.printParcel();
+class ExpressParcel extends Parcel {
+    UnitPrice;
+    extraPrice;
+    constructor(weight, UnitPrice, extraPrice) {
+        super(weight);
+        this.UnitPrice = UnitPrice;
+        this.extraPrice = extraPrice;
+    }
+    calculate() {
+        if (this.weight > 10) {
+            return (this.weight - 10) * this.extraPrice + 10 * this.UnitPrice;
+        }
+        else {
+            return this.weight * this.UnitPrice;
+        }
+    }
+}
+const e1 = new ExpressParcel(12, 5, 2);
+e1.printParcel();
 export {};
 //# sourceMappingURL=main.js.map
