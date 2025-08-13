@@ -70,44 +70,62 @@
 // const s1 = new StandardPackage(10, 5);
 // s1.printPackage();
 
-abstract class Parcel {
-  constructor(public weight: number) {}
-  abstract calculate(): number;
-  printParcel() {
-    console.log(
-      `you parcel is ${this.weight} kg and it's ${this.calculate()} dollars`
-    );
-  }
+// abstract class Parcel {
+//   constructor(public weight: number) {}
+//   abstract calculate(): number;
+//   printParcel() {
+//     console.log(
+//       `you parcel is ${this.weight} kg and it's ${this.calculate()} dollars`
+//     );
+//   }
+// }
+
+// class StandardParcel extends Parcel {
+//   constructor(weight: number, public unitPrice: number) {
+//     super(weight);
+//   }
+//   calculate(): number {
+//     return this.weight * this.unitPrice;
+//   }
+// }
+
+// const s1 = new StandardParcel(10, 2);
+// s1.printParcel();
+
+// class ExpressParcel extends Parcel {
+//   constructor(
+//     weight: number,
+//     public UnitPrice: number,
+//     public extraPrice: number
+//   ) {
+//     super(weight);
+//   }
+//   calculate(): number {
+//     if (this.weight > 10) {
+//       return (this.weight - 10) * this.extraPrice + 10 * this.UnitPrice;
+//     } else {
+//       return this.weight * this.UnitPrice;
+//     }
+//   }
+// }
+
+// const e1 = new ExpressParcel(12, 5, 2);
+// e1.printParcel();
+
+interface PersonInterface {
+  name: string;
+  age: number;
+  speak(n: number): void;
 }
 
-class StandardParcel extends Parcel {
-  constructor(weight: number, public unitPrice: number) {
-    super(weight);
-  }
-  calculate(): number {
-    return this.weight * this.unitPrice;
-  }
-}
-
-const s1 = new StandardParcel(10, 2);
-s1.printParcel();
-
-class ExpressParcel extends Parcel {
-  constructor(
-    weight: number,
-    public UnitPrice: number,
-    public extraPrice: number
-  ) {
-    super(weight);
-  }
-  calculate(): number {
-    if (this.weight > 10) {
-      return (this.weight - 10) * this.extraPrice + 10 * this.UnitPrice;
-    } else {
-      return this.weight * this.UnitPrice;
+class Person implements PersonInterface {
+  constructor(public name: string, public age: number) {}
+  speak(n: number): void {
+    for (let i = 0; i < n; i++) {
+      console.log(`my name is ${this.name} and I am ${this.age}`);
     }
   }
 }
 
-const e1 = new ExpressParcel(12, 5, 2);
-e1.printParcel();
+const s1 = new Person('will', 18);
+s1.speak(5);
