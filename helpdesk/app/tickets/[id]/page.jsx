@@ -24,6 +24,7 @@ async function getTicket(id) {
 
 export default async function Ticket({ params }) {
   const { id } = params;
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   const ticket = await getTicket(id);
 
   return (

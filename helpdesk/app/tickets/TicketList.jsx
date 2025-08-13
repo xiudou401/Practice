@@ -10,6 +10,7 @@ async function getTickets() {
 }
 
 export default async function TicketList() {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   const tickets = await getTickets();
   return (
     <>
