@@ -1,7 +1,11 @@
+import { notFound, redirect } from 'next/navigation';
 import React from 'react';
 
 const getTicket = async (id) => {
   const res = await fetch(`http://localhost:4000/tickets/${id}`);
+  if (!res.ok) {
+    redirect(`/tickets/not-found?id=${id}`);
+  }
   return res.json();
 };
 
