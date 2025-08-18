@@ -194,19 +194,41 @@
 
 // console.log(demo());
 
-class Person {
-  constructor(public name: string, protected age: number, private id: string) {}
-  getPrivateInfo() {
-    return `your id is ${this.id}`;
-  }
-  getInfo() {
-    return `name is ${this.name}, age is ${this.age}`;
-  }
-  getFullInfo() {
-    return this.getInfo() + ', ' + this.getPrivateInfo();
+// class Person {
+//   constructor(public name: string, protected age: number, private id: string) {}
+//   getPrivateInfo() {
+//     return `your id is ${this.id}`;
+//   }
+//   getInfo() {
+//     return `name is ${this.name}, age is ${this.age}`;
+//   }
+//   getFullInfo() {
+//     return this.getInfo() + ', ' + this.getPrivateInfo();
+//   }
+// }
+
+// const p1 = new Person('will', 2, 'fasdfasd12321');
+
+// console.log(p1.getFullInfo());
+
+abstract class Package {
+  constructor(public weight: number) {}
+  abstract calculate(): number;
+  printPackage() {
+    console.log(
+      `this parcel is ${this.weight}, the fee is ${this.calculate()} dollars`
+    );
   }
 }
 
-const p1 = new Person('will', 2, 'fasdfasd12321');
+class StandardPackage extends Package {
+  constructor(weight: number, public unitPrice: number) {
+    super(weight);
+  }
+  calculate(): number {
+    return this.weight * this.unitPrice;
+  }
+}
 
-console.log(p1.getFullInfo());
+const s1 = new StandardPackage(12, 2);
+s1.printPackage();

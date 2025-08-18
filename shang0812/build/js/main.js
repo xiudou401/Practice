@@ -158,26 +158,40 @@
 // }
 // // demo();
 // console.log(demo());
-class Person {
-    name;
-    age;
-    id;
-    constructor(name, age, id) {
-        this.name = name;
-        this.age = age;
-        this.id = id;
+// class Person {
+//   constructor(public name: string, protected age: number, private id: string) {}
+//   getPrivateInfo() {
+//     return `your id is ${this.id}`;
+//   }
+//   getInfo() {
+//     return `name is ${this.name}, age is ${this.age}`;
+//   }
+//   getFullInfo() {
+//     return this.getInfo() + ', ' + this.getPrivateInfo();
+//   }
+// }
+// const p1 = new Person('will', 2, 'fasdfasd12321');
+// console.log(p1.getFullInfo());
+class Package {
+    weight;
+    constructor(weight) {
+        this.weight = weight;
     }
-    getPrivateInfo() {
-        return `your id is ${this.id}`;
-    }
-    getInfo() {
-        return `name is ${this.name}, age is ${this.age}`;
-    }
-    getFullInfo() {
-        return this.getInfo() + ', ' + this.getPrivateInfo();
+    printPackage() {
+        console.log(`this parcel is ${this.weight}, the fee is ${this.calculate()} dollars`);
     }
 }
-const p1 = new Person('will', 2, 'fasdfasd12321');
-console.log(p1.getFullInfo());
+class StandardPackage extends Package {
+    unitPrice;
+    constructor(weight, unitPrice) {
+        super(weight);
+        this.unitPrice = unitPrice;
+    }
+    calculate() {
+        return this.weight * this.unitPrice;
+    }
+}
+const s1 = new StandardPackage(12, 2);
+s1.printPackage();
 export {};
 //# sourceMappingURL=main.js.map
