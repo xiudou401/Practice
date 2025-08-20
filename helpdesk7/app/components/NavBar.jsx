@@ -6,9 +6,14 @@ export default function NavBar({ user }) {
   return (
     <nav>
       <Link href="/">Dashboard</Link>
-      <Link href="/tickets">Tickets</Link>
-      {user && <span>Hello, {user.email}</span>}
-      <LogoutButton />
+      <Link href="/tickets" className="mr-auto">
+        Tickets
+      </Link>
+      {user && (
+        <>
+          <span>Hello, {user.email}</span> <LogoutButton />
+        </>
+      )}
     </nav>
   );
 }
