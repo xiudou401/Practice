@@ -1,5 +1,19 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
+import AuthForm from '../AuthForm';
 
 export default function Signup() {
-  return <div>Signup</div>;
+  const [error, setError] = useState('');
+  const handleSubmit = async (e, email, password) => {
+    e.preventDefault();
+  };
+  return (
+    <main>
+      <h2 className="text-center">Sign up</h2>
+
+      <AuthForm handleSubmit={handleSubmit} />
+
+      {error && <div className="error">{error}</div>}
+    </main>
+  );
 }
