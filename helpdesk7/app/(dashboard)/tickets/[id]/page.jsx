@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import React from 'react';
 
 const getTicket = async (id) => {
@@ -6,6 +7,11 @@ const getTicket = async (id) => {
       revalidate: 60,
     },
   });
+
+  if (!res.ok) {
+    notFound();
+  }
+
   return res.json();
 };
 
