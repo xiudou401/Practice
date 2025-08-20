@@ -1,6 +1,13 @@
 import { notFound } from 'next/navigation';
 import React from 'react';
 
+export async function generateStaticParams() {
+  const res = await fetch('http://localhost:4000/tickets');
+  const tickets = await res.json();
+
+  return tickets.map((ticket) => ({ id: ticket.id }));
+}
+
 const getTicket = async (id) => {
   await new Promise((resolve) => setTimeout(resolve, 3000));
   const res = await fetch(`http://localhost:4000/tickets/${id}`, {
