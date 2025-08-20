@@ -8,6 +8,7 @@ const getTickets = async () => {
 };
 export default async function TicketList() {
   const tickets = await getTickets();
+  console.log(tickets);
   return (
     <>
       {tickets.map((ticket) => (
