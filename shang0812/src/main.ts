@@ -211,24 +211,24 @@
 
 // console.log(p1.getFullInfo());
 
-abstract class Package {
-  constructor(public weight: number) {}
-  abstract calculate(): number;
-  printPackage() {
-    console.log(
-      `this parcel is ${this.weight}, the fee is ${this.calculate()} dollars`
-    );
-  }
-}
+// abstract class Package {
+//   constructor(public weight: number) {}
+//   abstract calculate(): number;
+//   printPackage() {
+//     console.log(
+//       `this parcel is ${this.weight}, the fee is ${this.calculate()} dollars`
+//     );
+//   }
+// }
 
-class StandardPackage extends Package {
-  constructor(weight: number, public unitPrice: number) {
-    super(weight);
-  }
-  calculate(): number {
-    return this.weight * this.unitPrice;
-  }
-}
+// class StandardPackage extends Package {
+//   constructor(weight: number, public unitPrice: number) {
+//     super(weight);
+//   }
+//   calculate(): number {
+//     return this.weight * this.unitPrice;
+//   }
+// }
 
-const s1 = new StandardPackage(12, 2);
-s1.printPackage();
+// const s1 = new StandardPackage(12, 2);
+// s1.printPackage();

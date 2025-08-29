@@ -10,6 +10,7 @@ export default function Login() {
   const router = useRouter();
   const handleSubmit = async (e, email, password) => {
     e.preventDefault();
+    setError('');
     const supabase = createClient();
     const { error } = await supabase.auth.signInWithPassword({
       email,
