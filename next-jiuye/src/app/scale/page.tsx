@@ -1,5 +1,6 @@
-import React from 'react';
+import Hero from '@/components/hero';
 
+import scaleSrc from '/public/scale.jpg';
 export default function page() {
-  return <div>Scale</div>;
+  return <Hero imgUrl={scaleSrc} altText="Scale" content="Scale..." />;
 }
