@@ -18,8 +18,8 @@ export default function Hero(props: IProps) {
           className="object-cover"
         />
       </div>
-      <div>
-        <h1>{props.content}</h1>
+      <div className="flex justify-center pt-48">
+        <h1 className="text-white text-6xl">{props.content}</h1>
       </div>
     </div>
   );
