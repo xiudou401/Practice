@@ -1,5 +1,13 @@
+import Hero from '@/components/hero';
 import React from 'react';
+import reliabilityImg from '/public/reliability.jpg';
 
 export default function page() {
-  return <div>Reliability</div>;
+  return (
+    <Hero
+      imgUrl={reliabilityImg}
+      altText="Reliability img"
+      content="Reliability..."
+    />
+  );
 }
