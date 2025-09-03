@@ -14,7 +14,7 @@ export default function Header() {
   const pathname = usePathname();
   return (
     <div className="w-full absolute z-10">
-      <div className="flex justify-between container mx-auto items-center p-8">
+      <div className="flex justify-between container mx-auto items-center p-8 text-white">
         <Link href="/" className="text-3xl font-bold">
           Home
         </Link>
