@@ -10,8 +10,11 @@ const linkData = [
   { name: 'Scale', href: '/scale' },
 ];
 
+const accessLink = ['/', '/performance', '/reliability', 'scale'];
+
 export default function Header() {
   const pathname = usePathname();
+  if (!accessLink.includes(pathname)) return null;
   return (
     <div className="w-full absolute z-10">
       <div className="flex justify-between container mx-auto items-center p-8 text-white">
