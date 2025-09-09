@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function Page() {
-  return null;
+  return <div>@children default</div>;
 }
