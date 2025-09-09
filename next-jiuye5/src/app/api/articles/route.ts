@@ -1,4 +1,3 @@
-import { message } from 'antd';
 import { NextResponse } from 'next/server';
 import db from '@/db';
 
